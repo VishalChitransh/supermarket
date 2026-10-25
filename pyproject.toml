@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "superkart-sales-forecasting"
+version = "0.1.0"
+description = "Sales forecasting and model deployment for SuperKart outlets"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["pandas>=2.0", "numpy>=1.24", "scikit-learn>=1.3", "joblib>=1.3"]
+
+[project.optional-dependencies]
+api = ["flask>=3.0"]
+frontend = ["streamlit>=1.30", "requests>=2.31"]
+notebook = ["matplotlib>=3.7", "seaborn>=0.12", "jupyter>=1.0", "requests>=2.31"]
+dev = ["pytest>=7.0", "ruff>=0.4"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

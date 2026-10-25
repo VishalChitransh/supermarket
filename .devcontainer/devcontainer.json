@@ -1,0 +1,12 @@
+{
+  "name": "SuperKart Sales Forecast",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "frontend",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "forwardPorts": [7860, 8501],
+  "portsAttributes": {
+    "7860": { "label": "Flask prediction API", "visibility": "public" },
+    "8501": { "label": "Streamlit forecast UI", "visibility": "public" }
+  },
+  "postCreateCommand": "python -m pip install -e '.[notebook,dev]'"
+}
